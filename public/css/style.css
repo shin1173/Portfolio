@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/* ALLPAGE */
+html {
+    background-color: #d3f9f0;
+}
+body {
+    text-align: center;
+    padding: 100px;
+}
+
+/* index-page */
+h1 {
+    color: #d3f9f0;
+    font-size: 80px;
+    margin: 5px 8px;
+}
+
+.index {
+    padding: 40px;
+    background-color: #54252e;
+    border-radius: 10px 20px;
+}
+
+.MLB {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.botan {
+    padding: 20px 0;
+    width: 250px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: #F5DEB3;
+    font-size: 13px;
+}
+.botan:hover {
+    border-radius: 10px;
+    background-color: #e7c181;
+}
+
+/* register-page */
+.register {
+    padding: 40px;
+    background-color: #54252e;
+    border-radius: 10px 20px;
+}
+
+/* login-page */
+.login {
+    padding: 40px;
+    background-color: #54252e;
+    border-radius: 10px 20px;
+}
+/* register,login-page */
+h2 {
+    color: #d3f9f0;
+    font-size: 50px;
+    margin: 5px 8px;
+}
+
+.username,.password,.email {
+    display: block;
+    font-size: 20px;
+    color: #d3f9f0;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.text {
+    padding: 5px 0;
+    width: 250px;
+    margin: 10px 0;
+}
+
+.submit {
+    padding: 10px 0;
+    width: 200px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: #F5DEB3;
+    font-size: 13px;
+}
+
+.submit:hover {
+    border-radius: 10px;
+    background-color: #e7c181;
+}
