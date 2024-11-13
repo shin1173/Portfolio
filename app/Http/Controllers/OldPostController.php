@@ -25,7 +25,7 @@ class PostController extends Controller
             'body' => 'required|max:400', //値が入ってないor本文が400文字以上の場合エラー
         ]);
 
-        $validated['user_id'] = auth()->id(); //$validatedの中にuser_id情報を追加できる,auth()->id()はログインしているユーザーのid情報
+        $validated['user_id'] = auth()->id(); //$validatedの中のuser_id情報を取り出す,auth()->id()はログインしているユーザーのid情報
 
         $post = Post::create($validated); //バリテーションエラーがなかった場合には、対象のデータが配列として$validatedに入る
         return back(); //処理後に元のページに戻るように指定している
