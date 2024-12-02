@@ -1,4 +1,3 @@
-{{--投稿した内容を全て表示させるビューファイル--}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -7,12 +6,6 @@
     </x-slot>
 
     <div class="mx-auto px-6">
-        {{-- @if(session('message'))
-            <div class="text-red-600 font-bold">
-                {{session('message')}}
-            </div>
-        @endif --}}
-
         <x-message :message="session('message')" />
         @foreach($posts as $post) {{--PostControllerから受け取った$posts変数の値を取り出して$postに表示する--}}
             <div class="mt-3 px-4 pt-3 pb-1  bg-white w-full rounded-2xl">

@@ -4,25 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Player;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreEntryRequest;
+use App\Http\Requests\UpdateEntryRequest;
 
 class EntryController extends Controller
 {
-    public function create() {
-        return view('entry.player');
-    }
-
-    public function store(Request $request) {
-        $validated = $request->validate([
-            'name' => 'required|max:30',
-            'team' => 'required',
-            'position' => 'required|max:10',
-            'detail' => 'max:20',
-        ]);
-
-        $player = Player::create($validated);
-        return redirect()->route('entry.index');
-    }
-
     public function index(Request $request) {
         $query = Player::query();
 
@@ -35,6 +22,17 @@ class EntryController extends Controller
         return view('entry.index', compact('players'));
     }
 
+    public function create() {
+        return view('entry.player');
+    }
+
+    public function store(StoreEntryRequest $request) {
+        $validated = $request->validated();
+
+        $player = Player::create($validated);
+        return redirect()->route('entry.index');
+    }
+
     public function show(Player $player) {
         return view('entry.show', compact('player'));
     }
@@ -43,13 +41,8 @@ class EntryController extends Controller
         return view('entry.edit', compact('player'));
     }
 
-    public function update(Request $request, Player $player) {
-        $validated = $request->validate([
-            'name' => 'required|max:30',
-            'team' => 'required',
-            'position' => 'required|max:10',
-            'detail' => 'max:20',
-        ]);
+    public function update(UpdateEntryRequest $request, Player $player) {
+        $validated = $request->validated();
 
         $player->update($validated);
 

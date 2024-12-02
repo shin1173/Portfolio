@@ -6,11 +6,6 @@
     </x-slot>
 
     <div class="max-w-7xl mb-10 mx-auto px-6">
-        {{-- @if(session('message')) 
-            <div class="text-red-600 font-bold">
-                {{session('message')}}
-            </div>
-        @endif --}}
         {{--チーム名--}}
         <x-message :message= "session('message')" />
         <form method="post" action="{{ route('post.store') }}">
@@ -27,58 +22,58 @@
             <div class="mt-8">
                 <label for="team" class="font-semibold mt-4">オーダー</label>
                 <div class="flex justify-center w-full bg-green-400">
-                    <div class="font-semibold w-64 mt-2">
+                    <div class="font-semibold w-64 mt-2 text-center">
                     {{--打順--}}
-                    <p class="ml-2 text-center text-2xl">~打順~</p>
-                    <select  class="ml-2 mb-1.5" name="1" id="">
+                    <p class="ml-2 text-center text-2xl my-5">~打順~</p>
+                    <select  class="ml-2 mb-3" name="1" id="">
                         <option value="">1番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="2" id="">
+                    <select  class="ml-2 mb-3" name="2" id="">
                         <option value="">2番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="3" id="">
+                    <select  class="ml-2 mb-3" name="3" id="">
                         <option value="">3番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="4" id="">
+                    <select  class="ml-2 mb-3" name="4" id="">
                         <option value="">4番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="5" id="">
+                    <select  class="ml-2 mb-3" name="5" id="">
                         <option value="">5番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="6" id="">
+                    <select  class="ml-2 mb-3" name="6" id="">
                         <option value="">6番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="7" id="">
+                    <select  class="ml-2 mb-3" name="7" id="">
                         <option value="">7番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="8" id="">
+                    <select  class="ml-2 mb-3" name="8" id="">
                         <option value="">8番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>
                         @endforeach
                     </select>
-                    <select  class="ml-2 mb-1.5" name="9" id="">
+                    <select  class="ml-2 mb-3" name="9" id="">
                         <option value="">9番</option>
                         @foreach($players as $id => $player)
                             <option value="{{ $id }}">{{ $player }}</option>

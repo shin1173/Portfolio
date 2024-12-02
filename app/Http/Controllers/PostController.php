@@ -6,23 +6,29 @@ use App\Models\Post;
 use App\Models\Player;
 use App\Models\LineupOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
+     * MEMO: 投稿一覧画面
      */
-    public function index() //投稿一覧画面
+    public function index()
     {
-        // $posts=Post::all();
         $posts = Post::paginate(10);
         return view('post.index', compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
+     * 
+     * MEMO: 投稿画面
      */
-    public function create() //投稿画面
+    public function create()
     {
         $players = Player::pluck('name', 'id');
         return view('post.create', compact('players'));
@@ -30,13 +36,12 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * 
+     * MEMO: 投稿データ保存
      */
-    public function store(Request $request) //投稿データ保存
+    public function store(StorePostRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|max:20',
-            'body' => 'required|max:300',
-        ]);
+        $validated = $request->validated();
 
         $validated['user_id'] = auth()->id();
 
@@ -58,29 +63,32 @@ class PostController extends Controller
 
     /**
      * Display the specified resource.
+     * 
+     * MEMO: 投稿個別表示
      */
-    public function show(Post $post) //投稿を個別表示する
+    public function show(Post $post)
     {
         return view('post.show', compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
+     * 
+     * MEMO: 投稿編集
      */
-    public function edit(Post $post) //投稿を編集する
+    public function edit(Post $post)
     {
         return view('post.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
+     * 
+     * MEMO: 投稿更新
      */
-    public function update(Request $request, Post $post) //投稿を更新する
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        $validated = $request->validate([
-            'title' => 'required|max:20',
-            'body' => 'required|max:400',
-        ]);
+        $validated = $request->validated();
 
         $validated['user_id'] = auth()->id();
 
@@ -92,8 +100,10 @@ class PostController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * 
+     * MEMO: 投稿削除
      */
-    public function destroy(Request $request, Post $post) //投稿を削除する
+    public function destroy(Request $request, Post $post)
     {
         $post->delete();
         $request->session()->flash('message', '削除しました');
