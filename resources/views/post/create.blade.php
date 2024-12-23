@@ -21,6 +21,9 @@
             {{--オーダー--}}
             <div class="mt-8">
                 <label for="team" class="font-semibold mt-4">オーダー</label>
+                @for ($i = 1; $i <= 9; $i++)
+                    <x-input-error :messages="$errors->get($i)" class="mt-2" />
+                @endfor
                 <div class="flex justify-center w-full bg-green-400">
                     <div class="font-semibold w-64 mt-2 text-center">
                     {{--打順--}}

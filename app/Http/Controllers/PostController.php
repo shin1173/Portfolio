@@ -48,7 +48,7 @@ class PostController extends Controller
         $post = Post::create($validated);
 
         foreach($request->all() as $key => $player_id) {
-            if(is_numeric($key)) {
+            if(is_numeric($key)  && !is_null($player_id)) {
                 LineupOrder::create([
                     'order' => $key,
                     'player_id' => $player_id,

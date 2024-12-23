@@ -24,6 +24,15 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'required|max:20',
             'body' => 'required|max:300',
+            '1' => 'required|nullable|exists:players,id',
+            '2' => 'required|nullable|exists:players,id',
+            '3' => 'required|nullable|exists:players,id',
+            '4' => 'required|nullable|exists:players,id',
+            '5' => 'required|nullable|exists:players,id',
+            '6' => 'required|nullable|exists:players,id',
+            '7' => 'required|nullable|exists:players,id',
+            '8' => 'required|nullable|exists:players,id',
+            '9' => 'required|nullable|exists:players,id',
         ];
     }
 }
